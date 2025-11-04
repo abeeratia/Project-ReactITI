@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@utility container {
+  @apply mx-auto px-8 md:px-20 lg:px-32;
+}
+
+/* .active{ */
+  /* @apply bg-amber-500 text-white */
+/* } */
