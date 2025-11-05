@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 function ContentDetails() {
   const [product, setProduct] = useState({});
   const [loader, setLoader] = useState(true);
+  const [errorMessage, seterrorMessage] = useState("");
   const { id } = useParams();
   console.log("obj", { id });
 
@@ -14,10 +15,14 @@ function ContentDetails() {
         `https://ecommerce.routemisr.com/api/v1/categories/${id}`
       );
       console.log("response", response);
+      if (!response.ok) {
+        throw new Error("something went wrong");
+      }
       const { data } = await response.json();
       console.log("data", data);
       setProduct(data);
     } catch (error) {
+      seterrorMessage(error.message);
       console.log("error", error);
     } finally {
       setLoader(false);
@@ -40,6 +45,18 @@ function ContentDetails() {
             wrapperClass="vortex-wrapper"
             colors={["red", "green", "blue", "yellow", "orange", "purple"]}
           />
+        </div>
+      </div>
+    );
+  }
+
+  if (errorMessage) {
+    return (
+      <div className=" text-center h-screen flex items-center justify-center">
+        <div>
+          <h2 className="text-3xl font-bold mt-5 text-red-700 uppercase w-75">
+            {errorMessage}
+          </h2>
         </div>
       </div>
     );

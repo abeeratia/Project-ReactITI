@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 function Navbar() {
   return (
-    <nav className="bg-gray-300 px-10 h-[50px] ">
+    <nav className="bg-gray-300 px-10 h-[50px]  py-1">
       <div className=" grid grid-cols-3 gap-2 items-center ">
         <div className="logo">
           <h1 className="font-bold text-3xl uppercase">NewHome</h1>
@@ -12,8 +12,10 @@ function Navbar() {
           <ul className="flex">
             <li>
               <NavLink
-                className={({isActive}) =>
-                  isActive ? "bg-amber-500 text-white p-4 uppercase" : "p-4 uppercase"
+                className={({ isActive }) =>
+                  isActive
+                    ? "bg-amber-500 text-white p-4 uppercase"
+                    : "p-4 uppercase"
                 }
                 to="/"
               >
@@ -22,8 +24,10 @@ function Navbar() {
             </li>
             <li>
               <NavLink
-                className={({isActive}) =>
-                  isActive ? "bg-amber-500 text-white p-4 uppercase" : "p-4 uppercase"
+                className={({ isActive }) =>
+                  isActive
+                    ? "bg-amber-500 text-white p-4 uppercase"
+                    : "p-4 uppercase"
                 }
                 to="/about"
               >
@@ -32,10 +36,11 @@ function Navbar() {
             </li>
             <li>
               <NavLink
-                className={({isActive}) =>
-                  isActive ? "bg-amber-500 text-white p-4 uppercase" : "p-4 uppercase"
+                className={({ isActive }) =>
+                  isActive
+                    ? "bg-amber-500 text-white p-4 uppercase"
+                    : "p-4 uppercase"
                 }
-               
                 to="/blog"
               >
                 blog{" "}
@@ -44,8 +49,10 @@ function Navbar() {
 
             <li>
               <NavLink
-                className={({isActive}) =>
-                  isActive ? "bg-amber-500 text-white p-4 uppercase" : "p-4 uppercase"
+                className={({ isActive }) =>
+                  isActive
+                    ? "bg-amber-500 text-white p-4 uppercase"
+                    : "p-4 uppercase"
                 }
                 to="/contact"
               >
@@ -55,12 +62,22 @@ function Navbar() {
           </ul>
         </div>
         <div className="flex justify-end items-center">
-          <button className="uppercase flex justify-center items-center ">
-            Login{" "}
-            <span className="ps-2">
-              <FaUser />
-            </span>
-          </button>
+          <NavLink to="/regester">
+            <button className="bg-amber-500 cursor-pointer text-white p-1 rounded-md uppercase flex justify-center items-center ">
+              Regester{" "}
+              <span className="ps-2">
+                <FaUser />
+              </span>
+            </button>
+          </NavLink>
+          <NavLink to="/login">
+            <button className=" cursor-pointer bg-amber-500 text-white rounded-md   ms-5 p-1 uppercase flex justify-center items-center ">
+              Login{" "}
+              <span className="ps-2">
+                <FaUser />
+              </span>
+            </button>
+          </NavLink>
           <p className="ps-10">
             <FaSearch />
           </p>

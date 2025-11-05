@@ -15,7 +15,7 @@ function Content() {
       console.log("response", response);
       console.log("response", response.statusMsg);
       if (response.statusMsg === "fail") {
-        throw new Error(response.message);
+        throw new Error("something went wrong");
       }
       setSubjects(response.data);
     } catch (error) {
