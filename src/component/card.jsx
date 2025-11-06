@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { decrement, increment } from "../redux/cartSlice";
+import { addToCart } from "../redux/cartSlice";
+// import { addToCart } from "../redux/cartSlice";
 
 function Card(props) {
   const dispatch = useDispatch();
@@ -17,19 +18,12 @@ function Card(props) {
       </Link>
       <button
         onClick={() => {
-          dispatch(increment(), console.log("clicked"));
+          dispatch(addToCart(props));
+          console.log("clicked", props);
         }}
         className="w-full cursor-pointer bg-amber-500 text-white px-10 py-2 mt-5"
       >
         add to cart
-      </button>
-      <button
-        onClick={() => {
-          dispatch(decrement(), console.log("remove"));
-        }}
-        className="w-full cursor-pointer bg-amber-500 text-white px-10 py-2 mt-5"
-      >
-        remove cart
       </button>
     </div>
   );
