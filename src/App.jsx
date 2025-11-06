@@ -8,6 +8,7 @@ import ContactPages from "./pages/contactPages";
 import ContentDetails from "./pages/contentDetails";
 import Regester from "./pages/regester";
 import Login from "./pages/login";
+import Cart from "./pages/cart";
 function App() {
   const router = createBrowserRouter([
     {
@@ -21,6 +22,7 @@ function App() {
         { path: "/contentdetails/:id/:name", element: <ContentDetails /> },
         { path: "/regester", element: <Regester /> },
         { path: "/login", element: <Login /> },
+        {path: "/cart", element: <Cart />},
         {
           path: "*",
           element: (
